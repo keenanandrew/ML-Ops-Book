@@ -25,6 +25,7 @@ def model() -> sklearn.ensemble._forest.RandomForestClassifier:
     REPO_ID = "electricweegie/mlewp-sklearn-wine"
     FILENAME = "rfc.joblib"
     model = joblib.load(hf_hub_download(REPO_ID, FILENAME))
+    print("hello")
     return model
 
 
@@ -32,6 +33,7 @@ def test_model_inference_types(model, test_dataset):
     assert isinstance(model.predict(test_dataset[0]), np.ndarray)
     assert isinstance(test_dataset[0], np.ndarray)
     assert isinstance(test_dataset[1], np.ndarray)
+    print("hello again")
 
 def test_model_performance(model, test_dataset):
     metrics = classification_report(y_true=test_dataset[1], y_pred=model.predict(test_dataset[0]), output_dict=True)
@@ -39,3 +41,4 @@ def test_model_performance(model, test_dataset):
     assert metrics['False']['precision'] > 0.9
     assert metrics['True']['f1-score'] > 0.8
     assert metrics['True']['precision'] > 0.8
+    print("hello, it me")
