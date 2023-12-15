@@ -22,7 +22,7 @@ def test_dataset() -> Union[np.array, np.array]:
 
 @pytest.fixture
 def model() -> sklearn.ensemble._forest.RandomForestClassifier:
-    REPO_ID = "electricweegie/mlewp-sklearn-wine"
+    REPO_ID = "hgdsjkl/mlewp-sklearn-wine"
     FILENAME = "rfc.joblib"
     model = joblib.load(hf_hub_download(REPO_ID, FILENAME))
     print("hello")
